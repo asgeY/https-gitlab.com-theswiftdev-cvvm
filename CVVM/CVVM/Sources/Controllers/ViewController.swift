@@ -45,14 +45,14 @@ class ViewController: CollectionViewController {
     
     func createHorizontal() -> CollectionViewModel {
         let artists = [
-            Artist(name: "August Burns Red", image: "01"),
-            Artist(name: "Breakdown of Sanity", image: "02"),
-            Artist(name: "Currents", image: "03"),
-            Artist(name: "Make Them Suffer", image: "04"),
-            Artist(name: "Parkway Drive", image: "05"),
-            Artist(name: "The Haunted", image: "06"),
-            Artist(name: "Upon a Burning Body", image: "07"),
-            Artist(name: "Whitechapel", image: "08"),
+            Artist(name: "August Burns Red", image: "a01"),
+            Artist(name: "Breakdown of Sanity", image: "a02"),
+            Artist(name: "Currents", image: "a03"),
+            Artist(name: "Make Them Suffer", image: "a04"),
+            Artist(name: "Parkway Drive", image: "a05"),
+            Artist(name: "The Haunted", image: "a06"),
+            Artist(name: "Upon a Burning Body", image: "a07"),
+            Artist(name: "Whitechapel", image: "a08"),
         ]
 
         let items = artists.map { artist -> HorizontalArtistViewModel in

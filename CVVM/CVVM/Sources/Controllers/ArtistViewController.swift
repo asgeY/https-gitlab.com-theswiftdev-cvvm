@@ -27,28 +27,20 @@ class ArtistViewController: CollectionViewController {
         Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.
         """
         
+        let grid = Grid(columns: 1, margin: UIEdgeInsets(all: 8))
+
+        let bioSection = CollectionViewSection(items: [DynamicTextViewModel(bio)])
+        bioSection.header = HeaderViewModel("Biography")
+        
         let albums = [
             Album(artirst: "August Burns Red", name: "Constellations", image: "01"),
-            Album(artirst: "Breakdown of Sanity", name: "Mirrors", image: "02"),
-            Album(artirst: "Currents", name: "The place I feel safest", image: "03"),
-            Album(artirst: "Make Them Suffer", name: "Neverbloom", image: "04"),
-            Album(artirst: "Parkway Drive", name: "Reverence", image: "05"),
-            Album(artirst: "The Haunted", name: "Exit wounds", image: "06"),
-            Album(artirst: "Upon a Burning Body", name: "Red White Green", image: "07"),
-            Album(artirst: "Whitechapel", name: "Our endless war", image: "08"),
         ]
         
-        let grid = Grid(columns: 1, margin: UIEdgeInsets(all: 8))
+        let items = albums.map { AlbumViewModel($0) }
+        let albumSection = CollectionViewSection(items: items)
+        albumSection.header = HeaderViewModel("Albums")
         
-        let items = albums.map { album -> AlbumViewModel in
-            let viewModel = AlbumViewModel(album)
-            return viewModel
-        }
-
-        let albumSection = CollectionViewSection(items: [DynamicTextViewModel(bio)])
-        albumSection.header = HeaderViewModel("Biography")
-        
-        self.source = CollectionViewSource(grid: grid, sections: [albumSection])
+        self.source = CollectionViewSource(grid: grid, sections: [bioSection, albumSection])
         self.collectionView.reloadData()
     }
     

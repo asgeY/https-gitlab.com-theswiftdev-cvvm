@@ -22,9 +22,14 @@ class ArtistViewModel: CollectionViewViewModel<ArtistCell, Artist> {
     }
     
     override func size(data: Artist, indexPath: IndexPath, grid: Grid, view: UIView) -> CGSize {
+        // note: this is a "complex" displaying the same cell in multiple grids, never done this like before haha
+        if grid.columns == 1 {
+            return grid.size(for: view, ratio: 1.2)
+        }
         if
-            (view.traitCollection.userInterfaceIdiom == .phone && view.traitCollection.verticalSizeClass == .compact) ||
-                view.traitCollection.userInterfaceIdiom == .pad
+            (view.traitCollection.userInterfaceIdiom == .phone &&
+                view.traitCollection.verticalSizeClass == .compact) ||
+            view.traitCollection.userInterfaceIdiom == .pad
         {
             return grid.size(for: view, ratio: 1.2, items: 1, gaps: 3)
         }
@@ -40,6 +45,5 @@ class HorizontalArtistViewModel: ArtistViewModel {
 
     override func size(data: Artist, indexPath: IndexPath, grid: Grid, view: UIView) -> CGSize {
         return CGSize(width: 150, height: 180)
-        //return grid.size(for: view, height: 160)
     }
 }
