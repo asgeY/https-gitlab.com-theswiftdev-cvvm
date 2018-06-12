@@ -44,6 +44,6 @@ class ArtistViewModel: CollectionViewViewModel<ArtistCell, Artist> {
 class HorizontalArtistViewModel: ArtistViewModel {
 
     override func size(data: Artist, indexPath: IndexPath, grid: Grid, view: UIView) -> CGSize {
-        return CGSize(width: 150, height: 180)
+        return CGSize(width: 140, height: 164)
     }
 }
